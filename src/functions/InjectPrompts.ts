@@ -5,6 +5,9 @@ let cachedSelection = "";
 document.addEventListener("selectionchange", () => {
   const selText = window.getSelection()?.toString().trim();
   if (selText) cachedSelection = selText;
+  else {
+    cachedSelection = ""; 
+  }
 });
 
 export const InjectPrompt = async (prompt: string) => {
@@ -20,7 +23,7 @@ export const InjectPrompt = async (prompt: string) => {
   // ✅ Step 2: Handle selected text if available (from cache)
   if (cachedSelection) {
     const selectedText = cachedSelection;
-    editor.innerText = prompt + ":\n\n" + selectedText;
+    editor.innerText = prompt + ":\n\n " + selectedText;
 
     editor.dispatchEvent(
       new InputEvent("input", {
@@ -29,8 +32,6 @@ export const InjectPrompt = async (prompt: string) => {
         inputType: "insertText",
       })
     );
-
-    cachedSelection = "";
   }
 
   // ✅ Step 3: If user typed into input already
@@ -41,7 +42,7 @@ export const InjectPrompt = async (prompt: string) => {
     if (anchorNode && anchorNode.nodeType === Node.TEXT_NODE) {
       const existingText = anchorNode.textContent || "";
 
-      editor.innerText = prompt + ":\n\n" + existingText;
+      editor.innerText = prompt + ":\n\n " + existingText;
 
       editor.dispatchEvent(
         new InputEvent("input", {
@@ -63,6 +64,9 @@ export const InjectPrompt = async (prompt: string) => {
       );
     }
   }
+
+
+    cachedSelection = "";
 
   // ✅ Step 5: Wait a moment, then click Send
   await wait(100);
