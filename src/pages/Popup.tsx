@@ -8,7 +8,7 @@ export default function() {
 
   return (
     <div style={{
-      padding: '10px',
+      padding: '0 25px',
       background: "#090909",
     }}>
       <img src="/logo.png" style={{
@@ -17,9 +17,13 @@ export default function() {
       }} />
       <h1>ProprChat!</h1>
       <p style={{
-        textAlign: 'center'
+        textAlign: 'center',
+        fontWeight: 'medium',
+        fontSize: "16px",
+        wordSpacing: '2px',
+        lineHeight: "20px"
       }}>
-        Open ChatGPT. ProprChat is available on bottom right!
+        Open ChatGPT. ProprChat is available in the input section!
       </p>
     </div>
   )

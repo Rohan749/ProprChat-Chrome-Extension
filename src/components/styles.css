@@ -1,59 +1,27 @@
 ._body {
-  background-color: #181818;
-  border-radius: 15px;
-  padding: 10px;
+  background-color: transparent;
+  padding: 0 15px 5px 15px;
   display: flex;
-  flex-direction: column;
-  text-align: right;
   align-items: end;
-  justify-content: center;
-  overflow-x: hidden;
-  width: 50px;
   transition-duration: 0.6s;
   font-size: 12px;
+  margin: 2.5px 0;
+  gap: 15px;
+  overflow: visible;
 }
 
 .container {
-  width: 10rem;
   display: flex;
-  justify-content: end;  
+  justify-content: start; 
 }
 
 ._body > button {
-  padding: 10px 5px;
-  transition-duration: 0.3s;
-  width: 100%;
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  /* min-width: 10rem; */
-  gap: 5px;
-  text-overflow: ellipsis;
+  padding: 7.5px;
+  border-radius: 50%;
+  background-color: #515151;
+  display: inline-block;
   position: relative;
-}
 
-._body > button > span {
-  opacity: 0;
-  transition-duration: 0.5s;
-  text-overflow: ellipsis;
-  display: inline-block; 
-  max-width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.container:hover ._body {
-  width: 10rem;
-}
-
-.container:hover ._body > button > span {
-  opacity: 1;
-  transition-duration: 0.2s;
-}
-
-._body > button:hover {
-  background-color: #303030;
-  border-radius: 10px;
 }
 
 button:active {
@@ -61,10 +29,9 @@ button:active {
 }
 
 ._body > button > img {
-  height: 20px;
-  width: 20px;
+  height: 18px;
+  width: 18px;
 }
-
 
 .logo {
   height: 25px;
@@ -72,3 +39,29 @@ button:active {
   margin: 5px 0;
 }
 
+.tooltip-text {
+  background-color: black;
+  position: absolute;
+  color: #fff;
+  font-size: 12px;
+  left: 50%;
+  top: -35px;
+  translate: -50% 0; 
+  padding: 5px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+  z-index: 999999999;
+  transition: opacity 0.2s;
+  opacity: 0;
+  pointer-events: none;
+  font-weight: bold;
+  letter-spacing: 0.3px;
+}
+
+._body > button:hover .tooltip-text {
+  opacity: 1;
+}
+
+._body > button:hover {
+  background-color: #606060;
+}
